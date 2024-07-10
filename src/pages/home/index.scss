@@ -1,0 +1,21 @@
+@import "@/styles/theme.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+
+.time_box{
+  text-align: center;
+  &_time{
+    padding: 24px;
+    font-size: 100px;
+    font-weight: bold;
+  }
+  &_setting{
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    .icon{
+      font-size: 32px;
+      width: 32px;
+      height: 32px;
+    }
+  }
+}

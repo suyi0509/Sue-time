@@ -1,0 +1,39 @@
+{
+  "extends": ["taro/react"],
+  "rules": {
+    "react/jsx-uses-react": 0,
+    "react/react-in-jsx-scope": 0,
+    "import/no-unresolved": 0,
+    "no-unused-vars": ["error", { "varsIgnorePattern": "Taro" }],
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".tsx"] }
+    ],
+    "jsx-quotes": 0, // 单引号和双引号 不开启检查
+    "react/no-array-index-key": 1, // 数据key值为 index值 - 警告
+    "no-var": 1, //禁用var - 警告
+    "no-irregular-whitespace": 0, //不规则的空白不允许
+    "no-trailing-spaces": 1, //一行结束后面有空格就发出警告
+    "no-const-assign": 2, //禁止修改const声明的变量
+    // "no-duplicate-case": 2, //switch中的case标签不能重复
+    // "no-dupe-args": 2, //函数参数不能重复
+    "no-empty": 2, //块语句中的内容不能为空
+    "no-func-assign": 2, //禁止重复的函数声明
+    "no-invalid-this": 0, //禁止无效的this，只能用在构造器，类，对象字面量
+    "no-undef": 2, //不能有未定义的变量
+    "no-use-before-define": 2, //未定义前不能使用
+    "import/no-commonjs": 1,
+    "camelcase": 1 //强制驼峰法命名
+  },
+  "globals": {
+    // 全局变量 false 只读 ，true 可修改
+    "PATH_BASE": false,
+    "PATH_ROOM": false,
+    "APPID": false,
+    "PATH_IMAGES": false,
+    "APPNAME": false,
+    "wx": false,
+    "definePageConfig": true,
+    "defineAppConfig": true
+  }
+}
