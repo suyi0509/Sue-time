@@ -1,3 +1,6 @@
 export default definePageConfig({
-  navigationStyle: "custom"
+  navigationBarTitleText: '',
+  navigationBarTextStyle: "white",
+  navigationBarBackgroundColor: "#18171D",
+  pageOrientation:'landscape'
 })

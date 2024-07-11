@@ -1,21 +1,33 @@
 @import "@/styles/theme.scss";
 @import "~taro-ui/dist/style/components/icon.scss";
 
-.time_box{
-  text-align: center;
-  &_time{
-    padding: 24px;
-    font-size: 100px;
-    font-weight: bold;
+.home {
+  .bg_img{
+    width: 500px;
+    height: 500px;
+    bottom: -10px;
+
+
   }
-  &_setting{
+  .menu_box {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    font-size: 24px;
-    .icon{
-      font-size: 32px;
-      width: 32px;
-      height: 32px;
+    padding: 24px;
+    .menu_item {
+      width: 49%;
+      position: relative;
+      color: #fff;
+      font-weight: 600;
+      image,
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .label {
+        position: absolute;
+        top: 38%;
+      }
     }
   }
 }

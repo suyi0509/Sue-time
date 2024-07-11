@@ -4,10 +4,11 @@ import { AtIcon } from "taro-ui";
 import full_screen from "@/assets/icon/full_screen.png";
 import { linkTo } from "@/utils";
 import Time from "../component/time";
+import { SizeEnum } from "../config";
 
 import dayjs from "dayjs";
 
 const FullScreen = () => {
-  return <Time size="full" />;
+  return <Time size={SizeEnum.FULLSIZE} />;
 };
 export default FullScreen;

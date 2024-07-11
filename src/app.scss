@@ -1,15 +1,16 @@
 @import "./styles/theme.scss";
+@import "./styles/icon.scss";
 
 page,
 .pageBg {
   background: $pageBg-color;
   color: #a4a4a6;
+  font-family: Iconfont;
 }
-
 
 // 表单-固定弧形背景
 .form-block-bg {
-  margin: 48px 48px 0;
+  margin: 48px 24px 0;
   background: #272831;
   border-radius: $radius;
   padding: 24px 24px;
