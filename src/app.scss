@@ -1,17 +1,27 @@
 @import "./styles/theme.scss";
-@import "./styles/icon.scss";
+@import "./styles/font.scss";
 
-page,
-.pageBg {
+page {
   background: $pageBg-color;
   color: #a4a4a6;
-  font-family: Iconfont;
 }
 
 // 表单-固定弧形背景
 .form-block-bg {
-  margin: 48px 24px 0;
-  background: #272831;
+  margin: 32px 32px 0;
+  background: $block-color;
   border-radius: $radius;
   padding: 24px 24px;
 }
+
+
+// .at-switch {
+//   background-color: $block-color !important;
+//   &__title{
+//     color: #fff;
+//   }
+//   &__container {
+//     // background-color: $block-color !important;
+//   }
+// }
+

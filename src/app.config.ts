@@ -2,14 +2,17 @@ export default defineAppConfig({
   pages: [
     'pages/index/index',
     'pages/home/index',
+    'pages/home/setting/index',
     'pages/tools/index',
     'pages/fullScreen/index',
   ],
   window: {
-    backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: 'WeChat',
-    navigationBarTextStyle: 'black'
+    navigationBarBackgroundColor: "#18171D",
+    navigationBarTitleText: "",
+    navigationBarTextStyle: "white",
+    backgroundColorTop: "#18171D",
+    backgroundColorBottom: "#18171D",
+    backgroundTextStyle: "light",
   },
   tabBar: {
     // custom: true,
@@ -21,14 +24,14 @@ export default defineAppConfig({
       {
         pagePath: "pages/home/index",
         text: "首页",
-        iconPath: "./assets/images/home.png",
-        selectedIconPath: "./assets/images/home-active.png",
+        iconPath: "./assets/tabs/home.png",
+        selectedIconPath: "./assets/tabs/home-active.png",
       },
       {
         pagePath: "pages/tools/index",
         text: "工具库",
-        iconPath: "./assets/images/tools.png",
-        selectedIconPath: "./assets/images/tools-active.png",
+        iconPath: "./assets/tabs/tools.png",
+        selectedIconPath: "./assets/tabs/tools-active.png",
       }
     ]
   },

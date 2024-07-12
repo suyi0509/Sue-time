@@ -1,32 +1,88 @@
 @import "@/styles/theme.scss";
 @import "~taro-ui/dist/style/components/icon.scss";
 
+page{
+
+}
 .home {
-  .bg_img{
-    width: 500px;
-    height: 500px;
-    bottom: -10px;
-
-
-  }
-  .menu_box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 24px;
-    .menu_item {
-      width: 49%;
-      position: relative;
-      color: #fff;
+  position: relative;
+  &_top {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &_city {
+      font-size: 40px;
       font-weight: 600;
+      position: absolute;
+      left: 24px;
+      top: -60px;
+      .at-icon-map-pin {
+        color: $primary-color;
+        margin-right: 12px;
+      }
+    }
+    image,
+    img {
+      width: 350px;
+      height: 350px;
+      position: absolute;
+      right: 0px;
+      top: -280px;
+    }
+  }
+  &_time {
+    margin-top: 300px;
+  }
+  &_menus {
+    display: flex;
+    &_left {
+      width: 47%;
+      margin-right: 0px;
+      height: 250px;
+      position: relative;
+      .menus_text {
+        font-size: 56px;
+        font-weight: 600;
+        color: #fff;
+        text-align: end;
+        margin-right: 24px;
+        margin-top: 24px;
+      }
       image,
       img {
         width: 100%;
-        height: 100%;
-      }
-      .label {
+        height: 280px;
         position: absolute;
-        top: 38%;
+        left: -30px;
+        bottom: -20px;
+      }
+    }
+    &_right {
+      flex: 1;
+      .right_item {
+        justify-items: center;
+        width: calc(100% - 112px);
+        display: flex;
+        justify-content: space-between;
+        .menus_text{
+          font-size: 34px;
+          font-weight: 600;
+          color: #fff;
+          position: relative;
+          width: 100%;
+          .eng{
+            position: absolute;
+            bottom: 0px;
+            font-size: 24px;
+            font-weight: 500;
+            color: #a4a4a6;
+          }
+        }
+        image,img{
+          padding: 16px 0px 16px 16px;
+          width: 78px;
+          height: 100%;
+        }
       }
     }
   }
