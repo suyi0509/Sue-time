@@ -1,8 +1,6 @@
 {
     "miniprogramRoot": "dist/",
-    "projectname": "sue-time",
     "description": "世界时钟",
-    "appid": "wx965cb9d7de5e083a",
     "setting": {
         "urlCheck": true,
         "es6": false,
@@ -10,7 +8,7 @@
         "compileHotReLoad": true,
         "postcss": false,
         "preloadBackgroundData": false,
-        "minified": false,
+        "minified": true,
         "newFeature": true,
         "autoAudits": false,
         "coverView": true,
@@ -21,20 +19,23 @@
             "ignore": [],
             "disablePlugins": [],
             "outputPath": ""
-        }
+        },
+        "packNpmRelationList": [],
+        "ignoreUploadUnusedFiles": true
     },
     "compileType": "miniprogram",
     "simulatorType": "wechat",
     "simulatorPluginLibVersion": {},
     "condition": {},
-    "libVersion": "3.4.10",
     "srcMiniprogramRoot": "dist/",
+    "editorSetting": {
+        "tabIndent": "insertSpaces",
+        "tabSize": 4
+    },
+    "libVersion": "3.4.10",
     "packOptions": {
         "ignore": [],
         "include": []
     },
-    "editorSetting": {
-        "tabIndent": "insertSpaces",
-        "tabSize": 4
-    }
+    "appid": "wx965cb9d7de5e083a"
 }

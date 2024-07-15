@@ -8,7 +8,7 @@ const globalStore = observable({
     second: dayjs().format("ss"),
     showDay: false,
     showSecond: false,
-    timeSize: 'default',
+    timeSize: 'normal',
     timeColor: '#fff',
     customText: ''
   },
@@ -42,8 +42,8 @@ const globalStore = observable({
     }
   },
 
-  getTimeSetting() {
-    return this.timeSetting
+  getTimeSetting(key: string) {
+    return key ? this.timeSetting[key] : this.timeSetting
   }
 });
 

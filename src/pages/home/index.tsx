@@ -1,6 +1,7 @@
 import { View, Image, Text } from "@tarojs/components";
 import { linkTo } from "@/utils";
 import { observer } from "mobx-react";
+import { AtInput, AtButton, AtSwitch } from "taro-ui";
 import icon_menu1 from "@/assets/images/icon_menu1.png";
 import icon_menu2 from "@/assets/images/icon_menu2.png";
 import icon_menu3 from "@/assets/images/icon_menu3.png";
@@ -21,6 +22,8 @@ const menus = [
     english: "Focus on",
   },
 ];
+
+const handleChange = () => {}
 
 const Home = () => {
   return (

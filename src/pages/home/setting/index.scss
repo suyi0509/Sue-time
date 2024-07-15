@@ -1,2 +1,14 @@
 @import "@/styles/theme.scss";
 @import "~taro-ui/dist/style/components/switch.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+@import "~taro-ui/dist/style/components/textarea.scss";
+
+.form-item {
+    display: flex;
+    .font_box {
+        display: flex;
+        .at-button {
+            margin-left: 12px;
+        }
+    }
+}
