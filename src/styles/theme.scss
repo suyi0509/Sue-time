@@ -1,15 +1,27 @@
 $primary-color: #d4237a; // 主色
 
 $border-color: #dddddd; // 灰色边框
-$price-color: #FE006B; // 红色价格
+$price-color: #fe006b; // 红色价格
 $link-color: #0374ff; // 蓝色链接
-$gray-color: #A4A4A6; // 灰色字体
+$gray-color: #a4a4a6; // 灰色字体
 
-$pageBg-color: #18171D; // 页面灰色背景
-$block-color:#272831;// 模块灰色背景
+$pageBg-color: #18171d; // 页面灰色背景
+$block-color: #272831; // 模块灰色背景
 
 $wrap: 32px; // 页间距
 $radius: 32px; // 圆角
+
+$black_pageBg_color:#18171d; //夜间模式 - 页面灰色背景
+$black_block_color:#272831; // 夜间模式 - 模块灰色背景
+$black_font_color: #fff;//夜间模式 - 字体颜色
+$black_default_color: #a4a4a6;//夜间模式 - 字体颜色
+
+
+$white_pageBg_color:#f5f5f5; //夜间模式 - 页面灰色背景
+$white_block_color:#FFF; // 夜间模式 - 模块灰色背景
+$white_font_color: #333;//夜间模式 - 字体颜色
+$white_default_color: #9a9a9a;//夜间模式 - 字体颜色
+
 
 // 图片根地址
 $path: "./assets/images";
@@ -18,4 +30,12 @@ $path: "./assets/images";
 // $default-bg: $path + "/my_top.png" + $STAMP; //默认背景图
 // $active-bg: $path + "/active-bg.png" + $STAMP; //active图
 // $cpmodal-bg-url: $path + "/icon/cp-modal-bg-v2.png" + $STAMP; //彩票弹窗背景图
+.blackTheme {
+  $pageBg-color: #18171d; // 页面灰色背景
+  $block-color: #272831; // 模块灰色背景
+}
 
+.whiteTheme {
+  $pageBg-color: #18171d; // 页面灰色背景
+  $block-color: #272831; // 模块灰色背景
+}

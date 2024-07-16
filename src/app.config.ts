@@ -6,6 +6,12 @@ export default defineAppConfig({
     'pages/tools/index',
     'pages/fullScreen/index',
   ],
+  subPackages: [{
+    root: "pagesTime/",
+    pages: [
+      'countdown/index'
+    ]
+  }],
   window: {
     navigationBarBackgroundColor: "#18171D",
     navigationBarTitleText: "",

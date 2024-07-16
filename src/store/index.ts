@@ -1,14 +1,16 @@
 import dayjs from 'dayjs';
 import { observable } from 'mobx';
+import { FontSizeEnum, themeEnum } from '../pages/config'
 
 const globalStore = observable({
+  theme: themeEnum.BLACK,
   timeSetting: {
     day: dayjs().format("YYYY-MM-DD"),
     hourMinute: dayjs().format("HH:mm"),
     second: dayjs().format("ss"),
-    showDay: false,
+    showDay: true,
     showSecond: false,
-    timeSize: 'normal',
+    timeSize: FontSizeEnum.normal,
     timeColor: '#fff',
     customText: ''
   },
@@ -42,8 +44,16 @@ const globalStore = observable({
     }
   },
 
-  getTimeSetting(key: string) {
+  getTimeSetting(key?: string) {
     return key ? this.timeSetting[key] : this.timeSetting
+  },
+
+  changeTheme(value) {
+    this.theme = value
+  },
+
+  getTheme() {
+    return this.theme
   }
 });
 

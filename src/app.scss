@@ -52,6 +52,37 @@ page {
   }
 }
 
+.form-action {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 24px 72px;
+
+  &__button {
+    flex: 1;
+    // padding: $wrap/2;
+  }
+  .form-action__button + .form-action__button {
+    margin-left: 78px;
+  }
+
+  &.fixed-bottom {
+    background-color: $block-color;
+  }
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.1);
+  padding-bottom: calc(20px + env(safe-area-inset-bottom) / 2);
+}
+
+// -taro-ui
+
 .at-switch {
   background-color: transparent !important;
   &__title {

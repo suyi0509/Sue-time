@@ -19,22 +19,34 @@ interface IProps {
 
 const Time = (props: IProps) => {
   const { size = SizeEnum.DEFAULTSIZE } = props;
-  const [nowDay, SetNowDay] = useState(dayjs().format("YYYY-MM-DD"));
-  const [nowTime, SetNowTime] = useState("");
+  // const [nowDay, SetNowDay] = useState(dayjs().format("YYYY-MM-DD"));
+  // const [nowTime, SetNowTime] = useState("");
+
+  const {
+    day,
+    hourMinute,
+    second,
+    showDay,
+    showSecond,
+    timeSize,
+    timeColor,
+    customText,
+  } = store.getTimeSetting();
 
   useEffect(() => {
+    if (!showSecond) return;
     const timer = setInterval(() => {
-      const day = dayjs().format("YYYY-MM-DD");
+      const dayNow = dayjs().format("YYYY-MM-DD");
       const time = dayjs().format("HH:mm:ss");
       store.changeTimeSettingObj({
-        day,
+        day: dayNow,
         time,
       });
     }, 1000);
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, [showSecond]);
 
   const toFullScreen = () => {
     linkTo({
@@ -48,15 +60,23 @@ const Time = (props: IProps) => {
     });
   };
 
-  const { day, hourMinute, second } = store.getTimeSetting();
   return (
     <View className="time_box">
       <View
         className={classnames("time_box_time", {
           full_screen: size === SizeEnum.FULLSIZE,
         })}
+        style={{
+          fontSize: timeSize * (size === SizeEnum.FULLSIZE ? 1.5 : 1) + "px",
+        }}
       >
-        {hourMinute}:{second}
+        <View className="time">
+          {hourMinute}
+          {showSecond && `:${second}`}
+        </View>
+        {size === SizeEnum.DEFAULTSIZE && customText && (
+          <View className="customText">{customText}</View>
+        )}
       </View>
       {size === SizeEnum.DEFAULTSIZE && (
         <View className="time_box_setting">
@@ -64,7 +84,7 @@ const Time = (props: IProps) => {
             className="at-icon at-icon-settings icon"
             onClick={handleSetting}
           ></View>
-          <View className="day">{nowDay}</View>
+          {showDay && <View className="day">{day}</View>}
           <Image
             src={full_screen}
             className="icon"
@@ -73,10 +93,14 @@ const Time = (props: IProps) => {
         </View>
       )}
       {size === SizeEnum.FULLSIZE && (
-        <View
-          className="at-icon at-icon-settings full-icon"
-          onClick={handleSetting}
-        ></View>
+        <View className="full_box_setting">
+          {showDay && <View className="day">{day}</View>}
+          {customText && <View className="customText">{customText}</View>}
+          <View
+            className="at-icon at-icon-settings full-icon"
+            onClick={handleSetting}
+          ></View>
+        </View>
       )}
     </View>
   );

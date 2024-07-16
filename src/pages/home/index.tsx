@@ -1,6 +1,7 @@
 import { View, Image, Text } from "@tarojs/components";
-import { linkTo } from "@/utils";
+import { linkTo, toast } from "@/utils";
 import { observer } from "mobx-react";
+import store from "@/store";
 import { AtInput, AtButton, AtSwitch } from "taro-ui";
 import icon_menu1 from "@/assets/images/icon_menu1.png";
 import icon_menu2 from "@/assets/images/icon_menu2.png";
@@ -23,13 +24,14 @@ const menus = [
   },
 ];
 
-const handleChange = () => {}
-
 const Home = () => {
   return (
     <View className="home">
       <View className="home_top">
-        <View className="home_top_city">
+        <View
+          className="home_top_city"
+          onClick={() => toast("正在开发，敬请期待")}
+        >
           <Text className="at-icon at-icon-map-pin"></Text>
           <Text>中国 , 北京</Text>
           <Text className="at-icon at-icon-chevron-right"></Text>
@@ -40,7 +42,14 @@ const Home = () => {
         <Time />
       </View>
       <View className="home_menus">
-        <View className="form-block-bg home_menus_left">
+        <View
+          className="form-block-bg home_menus_left"
+          onClick={() => {
+            linkTo({
+              url: "/pagesTime/countdown/index",
+            });
+          }}
+        >
           <View className="menus_text">倒计时</View>
           <Image src={icon_menu1}></Image>
         </View>
