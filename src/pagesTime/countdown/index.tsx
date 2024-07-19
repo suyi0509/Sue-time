@@ -11,15 +11,15 @@ const obj = {
 const arr = [
   {
     label: "小时",
-    value: [1, 2, 3, 4],
+    value: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
   },
   {
     label: "分钟",
-    value: [1, 2, 3, 4],
+    value: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
   },
   {
     label: "秒",
-    value: [1, 2, 3, 4],
+    value: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
   },
 ];
 const Index = () => {
@@ -35,14 +35,17 @@ const Index = () => {
         return (
           <View key={index1} className="countdown_box_item">
             <View className="number">
-              <Swiper vertical circular>
+              <Swiper
+                className="swiper_box"
+                vertical
+                circular
+                previousMargin="50px"
+                nextMargin="50px"
+              >
                 {item1.value.map((item2, index2) => {
                   return (
-                    <SwiperItem key={index2}>
-                      <View className="demo-text-1">
-                        <View>{item2}</View>
-                        <View>2</View>
-                      </View>
+                    <SwiperItem className="swiper_box_item" key={index2}>
+                      <View className="number">{item2}</View>
                     </SwiperItem>
                   );
                 })}
