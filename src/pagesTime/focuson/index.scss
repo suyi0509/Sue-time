@@ -1,0 +1,35 @@
+@import "@/styles/theme.scss";
+@import "~taro-ui/dist/style/components/button.scss";
+@import "~taro-ui/dist/style/components/loading.scss";
+@import "~taro-ui/dist/style/components/progress.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+
+.dateTime {
+  font-size: 120px;
+  height: 336px;
+  padding: 100px 32px;
+  text-align: center;
+  line-height: 336px;
+}
+
+.btn_box {
+  display: flex;
+  .cancel {
+    background: $primary-color;
+    border: 1px solid $primary-color;
+  }
+  .btn {
+    flex: 1;
+    margin: 0px 32px;
+  }
+}
+
+.record_box {
+  height: 600px;
+  overflow: auto;
+  &_item {
+    margin: 48px;
+    color: #fff;
+    font-size: 34px;
+  }
+}

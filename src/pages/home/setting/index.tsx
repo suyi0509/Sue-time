@@ -36,6 +36,7 @@ const Index = () => {
           title="是否显示日期"
           border={false}
           checked={model.showDay}
+          color='#d4237a'
           onChange={(val) => handleChange("showDay", val)}
         />
         <AtSwitch

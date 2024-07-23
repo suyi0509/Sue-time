@@ -1,9 +1,7 @@
-import { Component, PropsWithChildren, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { View, Image } from "@tarojs/components";
-import { AtIcon } from "taro-ui";
 import classnames from "classnames";
 import full_screen from "@/assets/images/full_screen.png";
-import home_top from "@/assets/images/home_top.png";
 import { linkTo } from "@/utils";
 import { observer } from "mobx-react";
 import store from "@/store";

@@ -1,8 +1,6 @@
 import { View, Image, Text } from "@tarojs/components";
 import { linkTo, toast } from "@/utils";
 import { observer } from "mobx-react";
-import store from "@/store";
-import { AtInput, AtButton, AtSwitch } from "taro-ui";
 import icon_menu1 from "@/assets/images/icon_menu1.png";
 import icon_menu2 from "@/assets/images/icon_menu2.png";
 import icon_menu3 from "@/assets/images/icon_menu3.png";
@@ -16,6 +14,7 @@ const menus = [
     img: icon_menu2,
     text: "秒表",
     english: "Stop watch",
+    url: "/pagesTime/stopwatch/index",
   },
   {
     img: icon_menu3,
@@ -56,7 +55,15 @@ const Home = () => {
         <View className="home_menus_right">
           {menus.map((item, index) => {
             return (
-              <View key={index} className="form-block-bg right_item">
+              <View
+                key={index}
+                className="form-block-bg right_item"
+                onClick={() => {
+                  linkTo({
+                    url: item.url,
+                  });
+                }}
+              >
                 <View className="menus_text">
                   <View>{item.text}</View>
                   <View className="eng">{item.english}</View>

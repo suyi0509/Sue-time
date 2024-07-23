@@ -9,7 +9,8 @@ export default defineAppConfig({
   subPackages: [{
     root: "pagesTime/",
     pages: [
-      'countdown/index'
+      'countdown/index',
+      'stopwatch/index'
     ]
   }],
   window: {
