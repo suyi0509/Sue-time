@@ -1,106 +1,117 @@
 import { useEffect, useState } from "react";
+import Taro from "@tarojs/taro";
 import dayjs from "dayjs";
-import { View} from "@tarojs/components";
-import { AtButton } from "taro-ui";
+import { View } from "@tarojs/components";
+import { AtButton, AtTabs, AtTabsPane } from "taro-ui";
 import duration from "dayjs/plugin/duration";
+import { observer } from "mobx-react";
+import store from "@/store";
 import "./index.scss";
-
-dayjs.extend(duration);
+import { toast } from "@/utils";
 
 const Index = () => {
-  const [time, setTime] = useState(0);
-  const [dateTime, setDateTime] = useState("00:00:00:00");
-  const [state, setState] = useState<"stop" | "run" | "close">("close"); // 时钟状态
-  const [arrList, setArrList] = useState<any[]>([]);
+  const [model, setModel] = useState(store.getFocuson());
 
   useEffect(() => {
-    let timer;
-    if (state === "run") {
-      timer = setInterval(() => {
-        setTime(time + 1);
-        const value = convertSecondsToHMSM(time + 1);
-        setDateTime(value);
-      }, 10);
+    console.log("会走吗");
+    setModel(store.getFocuson());
+  }, [store.focuson]);
+
+  const tabList = [
+    { value: 15, title: "15分钟" },
+    { value: 30, title: "30分钟" },
+  ];
+
+  const secondsToMinutesSeconds = (seconds) => {
+    let minutes = Math.floor(seconds / 60);
+    let remainingSeconds = seconds % 60;
+    return `${minutes}:${
+      remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds
+    }`;
+  };
+
+  const handleTabChange = (e) => {
+    if (model.state === "run") {
+      {
+        Taro.showModal({
+          content: "切换会导致计时中断噢,请再次确认",
+          success: () => {
+            setFouse(e);
+          },
+        });
+      }
+    } else {
+      setFouse(e);
     }
-    return () => clearInterval(timer);
-  }, [time, state]);
+  };
+  const setFouse = (e) => {
+    store.changeFocusonObj({
+      state: "close",
+      curTab: e ? 30 : 15,
+      time: e ? 30 * 60 : 15 * 60,
+    });
+  };
 
-  function convertSecondsToHMSM(seconds) {
-    const timeObject = dayjs.duration(seconds * 10).format("HH:mm:ss:SSS");
-    return timeObject.substring(0, 11);
-  }
-
-  const handleDebb = () => {
-    setArrList([...arrList, dateTime]);
+  const handleState = (type) => {
+    store.changeFocusonObj({
+      state: type,
+    });
+    store.intervalFocuson();
   };
 
   const handleCancel = () => {
-    setState("close");
-    setArrList([]);
-    setTime(0);
+    store.changeFocusonObj({
+      state: "close", // stop | run | close
+      time: model.curTab * 60, // 秒
+    });
+    store.intervalFocuson();
   };
 
   return (
     <View>
-      <View className="dateTime">{dateTime}</View>
+      <AtTabs
+        current={model.curTab === 15 ? 0 : 1}
+        tabList={tabList}
+        onClick={(e) => {
+          handleTabChange(e);
+        }}
+      ></AtTabs>
+      <View className="dateTime">{secondsToMinutesSeconds(model.time)}</View>
       <View className="btn_box">
-        {state === "run" && (
-          <AtButton
-            type="primary"
-            circle
-            onClick={handleDebb}
-            className="cancel btn"
-          >
-            计次
-          </AtButton>
-        )}
-        {state !== "run" && (
-          <AtButton
-            type="primary"
-            circle
-            onClick={() => handleCancel()}
-            className="cancel btn"
-          >
-            复位
-          </AtButton>
-        )}
-        {state !== "run" && (
+        <AtButton
+          type="primary"
+          circle
+          onClick={() => handleCancel()}
+          className="cancel btn"
+        >
+          取消
+        </AtButton>
+        {model.state !== "run" && (
           <AtButton
             type="secondary"
             circle
-            onClick={() => setState("run")}
+            onClick={() => handleState("run")}
             className="btn"
           >
             启动
           </AtButton>
         )}
-        {state === "run" && (
+        {model.state === "run" && (
           <AtButton
             type="secondary"
             circle
-            onClick={() => setState("stop")}
+            onClick={() => handleState("stop")}
             className="btn"
           >
             暂停
           </AtButton>
         )}
       </View>
-      {arrList.length ? (
-        <View className="record_box form-block-bg">
-          {arrList.map((item, index) => {
-            return (
-              <View key={index} className="record_box_item">
-                第{index + 1}次计时: {item}
-              </View>
-            );
-          })}
-        </View>
-      ) : null}
     </View>
   );
 };
 
 definePageConfig({
-  navigationBarTitleText: "秒表",
+  navigationBarTitleText: "专注番茄",
 });
-export default Index;
+export default observer(Index);

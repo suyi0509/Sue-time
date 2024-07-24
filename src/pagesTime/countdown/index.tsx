@@ -99,7 +99,7 @@ const Index = () => {
           {arr.map((item1, index1) => {
             return (
               <View key={index1} className="countdown_box_item">
-                <View className="number">
+                <View className="number_value">
                   <Swiper
                     className="swiper_box"
                     vertical
@@ -115,11 +115,11 @@ const Index = () => {
                       return (
                         <SwiperItem className="swiper_box_item" key={index2}>
                           <View
-                            className={classNames("number", {
+                            className={classNames("text", {
                               number_act: time[item1.key] === item2,
                             })}
                           >
-                            {item2}
+                           {item2}
                           </View>
                         </SwiperItem>
                       );
@@ -157,7 +157,7 @@ const Index = () => {
         )}
         {state === "run" && (
           <AtButton
-            type="primary"
+            type="secondary"
             circle
             onClick={() => setState("stop")}
             className="btn"

@@ -10,7 +10,8 @@ export default defineAppConfig({
     root: "pagesTime/",
     pages: [
       'countdown/index',
-      'stopwatch/index'
+      'stopwatch/index',
+      'focuson/index'
     ]
   }],
   window: {

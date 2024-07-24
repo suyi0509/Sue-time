@@ -39,11 +39,22 @@ $path: "./assets/images";
 }
 
 .at-button--primary {
-  background: #d4237a;
-  border: 1px solid #d4237a;
+  background: #d4237a !important;
+  border: 1px solid #d4237a !important;
 }
 
-.at-button--secondary{
+.at-button--secondary {
   color: #222222 !important;
-  border: 1PX solid #000 !important;
+  border: 1px solid #000 !important;
+}
+
+.at-tabs__header {
+  background-color: #272831 !important;
+  .at-tabs__item{
+    color: #fff;
+    padding: 32px 24px;
+    .at-tabs__item-underline{
+      background-color:#fff
+    }
+  }
 }
