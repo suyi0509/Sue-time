@@ -19,7 +19,7 @@ const globalStore = observable({
   focuson: {
     state: 'close', // stop | run | close
     curTab: 15,//15 | 30
-    time: 15// 秒
+    time: 15 * 60// 秒
   },
   changeFocuson(key, value) {
     this.focuson[key] = value
